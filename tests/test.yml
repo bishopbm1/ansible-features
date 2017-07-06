@@ -3,8 +3,12 @@
 
   vars:
     jenkins_package_state: latest
+    when:  "ansible_os_family == 'RedHat'"
     java_packages:
       - java-1.8.0-openjdk
+    when:  "ansible_os_family == 'Debian'"
+    java_packages:
+      - openjdk-8-jdk
 
   roles:
     - geerlingguy.jenkins
