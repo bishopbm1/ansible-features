@@ -1,0 +1,14 @@
+---
+- hosts: all
+
+  vars:
+    jenkins_jobs:
+      - {name: 'testing', config: "{{ lookup('file', './test-job.xml') }}"}
+
+  pre_tasks:
+    - include: java-8.yml
+
+  roles:
+    - andrewrothstein.python
+    - novafloss.jenkins-api
+    - role_under_test

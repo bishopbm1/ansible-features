@@ -1,0 +1,15 @@
+---
+- name: Ensure dependencies are installed.
+  package:
+    name:
+      - curl
+      - libselinux-python
+      - initscripts
+      - python-lxml
+    state: installed
+
+- name: Ensure Jenkins is installed.
+  package:
+    name: jenkins
+    state: "{{ jenkins_package_state }}"
+  notify: configure default users

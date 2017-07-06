@@ -1,0 +1,14 @@
+---
+- name: Ensure dependencies are installed.
+  apt:
+    name:
+      - curl
+      - apt-transport-https
+      - python-lxml
+    state: installed
+
+- name: Ensure Jenkins is installed.
+  apt:
+    name: jenkins
+    state: "{{ jenkins_package_state }}"
+  notify: configure default users
