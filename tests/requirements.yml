@@ -1,3 +1,4 @@
 ---
 - src: andrewrothstein.python
 - src: novafloss.jenkins-api
+- src: geerlingguy.jenkins
